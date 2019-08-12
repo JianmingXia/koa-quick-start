@@ -1,0 +1,9 @@
+'use strict';
+
+module.exports = {
+  OK: 0,
+  UNKNOWN_ERROR: 10000,
+  ROUTER_NOT_FOUND: 10001,
+  INVALID_PARAM: 10002,
+  REQUEST_ENTITY_TOO_LARGE: 10003,
+};

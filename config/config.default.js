@@ -1,0 +1,27 @@
+'use strict';
+
+const moment = require('moment');
+
+const dateFormat = function() {
+  return '[' + moment().format('YYYY-MM-DD HH:mm:ss.SSS') + ']';
+};
+
+module.exports = {
+  debug: true,
+  port: '3000',
+  logger: {
+    name: 'dev',
+    level: 'debug',
+    json: false,
+    colorize: 'all',
+    localTime: true,
+    label: process.pid,
+    timestamp: dateFormat,
+  },
+  bodyParser: {
+    enableTypes: ['json', 'form'],
+    formLimit: '2mb',
+    jsonLimit: '56kb',
+  },
+  urlPrefix: '',
+};
