@@ -9,22 +9,18 @@ const dateFormat = function() {
 module.exports = {
   port: '3000',
   logConfig: {
-    console: true,
-    file: false,
+    console: false,
+    file: true,
   },
   logger: {
     name: 'dev',
-    level: 'debug',
+    level: 'info',
     json: false,
     colorize: 'all',
     localTime: true,
     label: process.pid,
     timestamp: dateFormat,
+    filename: '%DATE%.log',
+    dirname: './logs/',
   },
-  bodyParser: {
-    enableTypes: ['json', 'form'],
-    formLimit: '2mb',
-    jsonLimit: '56kb',
-  },
-  urlPrefix: '',
 };

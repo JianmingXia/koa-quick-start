@@ -8,11 +8,16 @@ const config = require('../config');
 const {combine, timestamp, printf} = format;
 
 function getTransports() {
-  if (false === config.debug) {
-    return [new DailyRotateFile(config.logger)];
-  } else {
-    return [new transports.Console(config.logger)];
+  let res = [];
+
+  if (config.logConfig.console) {
+    res.push(new transports.Console(config.logger));
   }
+  if (config.logConfig.file) {
+    res.push(new DailyRotateFile(config.logger));
+  }
+
+  return res;
 }
 
 const logger = createLogger({
