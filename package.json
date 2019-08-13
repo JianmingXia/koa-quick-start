@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./app"
+    "start": "node ./app",
+    "lint": "eslint --ext .js ./"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -22,6 +23,7 @@
     "eslint": "^5.15.2",
     "husky": "^3.0.2",
     "mocha": "^4.1.0",
-    "nyc": "^14.1.1"
+    "nyc": "^14.1.1",
+    "prettier": "1.18.2"
   }
 }
