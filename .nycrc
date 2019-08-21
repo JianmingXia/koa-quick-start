@@ -1,0 +1,15 @@
+{
+  "include": [
+    "router/**",
+    "schema/**",
+    "controller/**",
+    "service/**",
+    "model/**"
+  ],
+  "watermarks": {
+    "lines": [50, 80],
+    "functions": [50, 80],
+    "branches": [50, 80],
+    "statements": [50, 80]
+  }
+}
