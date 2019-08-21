@@ -5,27 +5,10 @@ const log = require('../plugin/log');
 const ErrorCode = require('../common/error_code');
 const ErrorMsg = require('../common/error_msg');
 const StatusCode = require('../common/status_code');
+const SysError = require('../common/sys_error');
 
 const parseErrorResult = (ctx, err) => {
-  if (err instanceof ReferenceError || err instanceof RangeError || err instanceof SyntaxError || err instanceof URIError) {
-    log.error({
-      type: 'Server Error',
-      msg: err.message,
-      base: {
-        method: ctx.method,
-        path: ctx.path,
-        status: ctx.status,
-      },
-      payload: ctx.reqParams,
-    });
-
-    // 未知错误
-    return {
-      code: ErrorCode.UNKNOWN_ERROR,
-      data: null,
-      message: ErrorMsg.UNKNOWN_ERROR,
-    };
-  } else {
+  if (err instanceof SysError) {
     log.warn({
       type: 'Server Warn',
       msg: err.message,
@@ -42,6 +25,24 @@ const parseErrorResult = (ctx, err) => {
       code: err.code || ErrorCode.UNKNOWN_ERROR,
       data: err.data || null,
       message: err.message,
+    };
+  } else {
+    log.error({
+      type: 'Server Error',
+      msg: err.message,
+      base: {
+        method: ctx.method,
+        path: ctx.path,
+        status: ctx.status,
+      },
+      payload: ctx.reqParams,
+    });
+
+    // 未知错误
+    return {
+      code: ErrorCode.UNKNOWN_ERROR,
+      data: null,
+      message: ErrorMsg.UNKNOWN_ERROR,
     };
   }
 };

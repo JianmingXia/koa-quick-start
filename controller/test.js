@@ -1,6 +1,6 @@
 'use strict';
 
-const TestService = require('../service/test');
+const UserService = require('../service/user');
 
 module.exports = {
   /**
@@ -12,10 +12,10 @@ module.exports = {
   },
 
   /**
-   * 发生错误的测试
+   * 抛出异常的测试
    * @param {*} ctx
    */
-  async errTest(ctx) {
+  async throwUndefinedError(ctx) {
     ctx.body = xxxx;
   },
 
@@ -24,6 +24,8 @@ module.exports = {
    * @param {*} ctx
    */
   async getUser(ctx) {
-    ctx.body = await TestService.getUser();
+    const {userId} = ctx.reqParams.router;
+
+    ctx.body = await UserService.getUser(userId);
   },
 };

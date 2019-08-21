@@ -13,8 +13,8 @@ module.exports = [
   },
   {
     method: 'get',
-    path: '/err_test',
-    controller: TestCtrl.errTest,
+    path: '/throw_undefined_error',
+    controller: TestCtrl.throwUndefinedError,
     middleware: [],
   },
   {

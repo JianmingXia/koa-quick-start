@@ -1,6 +1,6 @@
 'use strict';
 
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const log = require('../plugin/log');
 const ErrorCode = require('../common/error_code');

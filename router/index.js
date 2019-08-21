@@ -12,7 +12,7 @@ const router = new Router(config.urlPrefix);
 
 function addToRouter(routers) {
   routers.forEach(item => {
-    const method = item.method ? item.method : 'all';
+    const method = item.method;
 
     log.info({
       type: 'Server Init Router',
