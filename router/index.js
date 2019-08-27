@@ -7,6 +7,7 @@ const Router = require('koa-router');
 const CheckParam = require('../middleware/check_param');
 const log = require('../plugin/log');
 const config = require('../config');
+const LogType = require('../common/log_type');
 
 const router = new Router(config.urlPrefix);
 
@@ -15,19 +16,19 @@ function addToRouter(routers) {
     const method = item.method;
 
     log.info({
-      type: 'Server Init Router',
+      type: LogType.INIT_ROUTER,
       payload: {
         method,
         path: item.path,
       },
     });
 
-    if (item.permissions) {
-      if (false === Array.isArray(item.permissions)) {
-        item.permissions = [item.permissions];
+    if (item.middleware) {
+      if (false === Array.isArray(item.middleware)) {
+        item.middleware = [item.middleware];
       }
 
-      router[method](item.path, CheckParam(item.checkParam), ...item.permissions, item.controller);
+      router[method](item.path, CheckParam(item.checkParam), ...item.middleware, item.controller);
     } else {
       router[method](item.path, CheckParam(item.checkParam), item.controller);
     }

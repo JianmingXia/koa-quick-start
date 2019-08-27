@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 let config = require('./config.default');
+const LogType = require('../common/log_type');
 
 // load 指定环境配置
 const env = process.env.NODE_ENV;
@@ -14,7 +15,7 @@ if (env) {
     const log = require('../plugin/log');
 
     log.error({
-      type: 'Config Error',
+      type: LogType.CONFIG_ERROR,
       msg: e.message,
     });
   }

@@ -10,13 +10,14 @@ const SysError = require('../common/sys_error');
 const ErrorCode = require('../common/error_code');
 const ErrorMsg = require('../common/error_msg');
 const StatusCode = require('../common/status_code');
+const LogType = require('../common/log_type');
 
 const router = require('../router');
 
 module.exports = app => {
   app.on('error', (err, ctx) => {
     log.error({
-      type: 'Server Error',
+      type: LogType.SERVER_ERROR,
       msg: err.message,
     });
 

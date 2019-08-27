@@ -6,11 +6,12 @@ const ErrorCode = require('../common/error_code');
 const ErrorMsg = require('../common/error_msg');
 const StatusCode = require('../common/status_code');
 const SysError = require('../common/sys_error');
+const LogType = require('../common/log_type');
 
 const parseErrorResult = (ctx, err) => {
   if (err instanceof SysError) {
     log.warn({
-      type: 'Server Warn',
+      type: LogType.SERVER_WARN,
       msg: err.message,
       base: {
         method: ctx.method,
@@ -28,7 +29,7 @@ const parseErrorResult = (ctx, err) => {
     };
   } else {
     log.error({
-      type: 'Server Error',
+      type: LogType.SERVER_ERROR,
       msg: err.message,
       base: {
         method: ctx.method,

@@ -1,6 +1,7 @@
 'use strict';
 
 const log = require('../plugin/log');
+const LogType = require('../common/log_type');
 
 module.exports = () => {
   return async (ctx, next) => {
@@ -9,7 +10,7 @@ module.exports = () => {
     let time = (Date.now() - startTime) + 'ms';
 
     log.info({
-      type: 'Request Time',
+      type: LogType.REQUEST_TIME,
       base: {
         ip: ctx.request.ip,
         method: ctx.method,
