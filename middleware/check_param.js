@@ -6,6 +6,7 @@ const log = require('../plugin/log');
 const ErrorCode = require('../common/error_code');
 const ErrorMsg = require('../common/error_msg');
 const SysError = require('../common/sys_error');
+const LogType = require('../common/log_type');
 
 module.exports = (params) => {
   return async function(ctx, next) {
@@ -27,7 +28,7 @@ module.exports = (params) => {
 
         if (validResult.error) {
           log.warn({
-            type: 'Param Error',
+            type: LogType.PARAM_ERROR,
             msg: validResult.error.message,
           });
 

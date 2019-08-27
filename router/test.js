@@ -15,20 +15,17 @@ module.exports = [
     method: 'get',
     path: '/throw_undefined_error',
     controller: TestCtrl.throwUndefinedError,
-    middleware: [],
   },
   {
     method: 'get',
     path: '/users/:userId',
     controller: TestCtrl.getUser,
     checkParam: TestSchema.getUser,
-    middleware: [],
   },
   {
     method: 'get',
     path: '/no_permission',
     controller: TestCtrl.test,
-    permissions: [PermissionCtrl.checkNoPermission],
-    middleware: [],
+    middleware: PermissionCtrl.checkNoPermission,
   },
 ];
