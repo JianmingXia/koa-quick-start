@@ -27,4 +27,10 @@ module.exports = {
     jsonLimit: '56kb',
   },
   urlPrefix: '',
+  es: {
+    host: 'http://127.0.0.1:9200',
+  },
+  esIndex: {
+    chinesePoetry: 'chinese-poetry',
+  },
 };

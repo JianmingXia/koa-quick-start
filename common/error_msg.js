@@ -7,4 +7,5 @@ module.exports = {
   INVALID_PARAM: '无效的参数',
   REQUEST_ENTITY_TOO_LARGE: '请求内容过长',
   NO_PERMISSION: '无权限操作',
+  NO_CHINESE_POETRY: '无匹配的古诗',
 };
