@@ -1,7 +1,10 @@
 {
-  "name": "app-starter-koa",
-  "version": "0.1.0",
-  "private": true,
+  "name": "koa-quick-start",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JianmingXia/koa-quick-start.git"
+  },
   "scripts": {
     "start": "node ./app",
     "lint": "eslint --ext .js ./",
@@ -30,5 +33,11 @@
     "power-assert": "^1.6.1",
     "prettier": "1.18.2",
     "supertest": "^4.0.2"
-  }
+  },  
+  "keywords": [
+    "koa",
+    "quick start"
+  ],
+  "author": "Ryoma",
+  "license": "MIT"
 }

@@ -1,5 +1,10 @@
 这是一个快速构建 Koa 项目的模板，基于过往的工作经历整理，如若需要 Koa-Session、ORM 等需要自己引入。
 
+## 分支说明
+- master: 主分支
+- ryoma: 开发分支
+- es: [es 应用的分支](https://github.com/JianmingXia/koa-quick-start/tree/es)
+
 ## NPM 命令
 ### 启动服务
 
