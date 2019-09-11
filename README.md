@@ -4,6 +4,7 @@
 - master: 主分支
 - ryoma: 开发分支
 - es: [es 应用的分支](https://github.com/JianmingXia/koa-quick-start/tree/es)
+- mysql: [引入 sequelize 及 sequelize-cli 的分支](https://github.com/JianmingXia/koa-quick-start/tree/mysql)
 
 ## NPM 命令
 ### 启动服务
