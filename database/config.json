@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "sequelize-test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "migrationStorage": "json",
+    "migrationStoragePath": "database/sequelize_development_meta.json"
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "sequelize-test-test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
