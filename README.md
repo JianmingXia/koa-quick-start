@@ -39,46 +39,29 @@ npm run cov
 ## 模板说明
 ### 核心部分
 #### router
-配置 URL 路由规则，目前 URL 路由支持 5 个参数：
-- method: 方法
-- path: URL 路径
-- checkParam: 参数校验（可选），会使用 schema 中提前写入的规则
-- middleware: 在 controller 前做的其它操作，比如权限校验、预置上下文等
-- controller: 配置路由规则后跳转的 controller
-
-```
-{
-  method: 'get',
-  path: '/users/:userId',
-  controller: TestCtrl.getUser,
-  checkParam: TestSchema.getUser,
-  middleware: [],
-}
-```
+配置 URL 路由规则，见[文档](docs/router.md)
 
 #### middleware
-中间件目录，包括以下中间件：
-- request_time.js: 记录请求响应时间，会调用插件-Log
-- check_param.js: 校验参数是否合法（基于 Joi 实现）
-- response_format.js: 返回内容格式化
+预设的中间件，见[文档](docs/middleware.md)
 
 #### controller
-controller 负责的是：解析用户的输入，处理后返回相应的结果。通过 Router 将用户的请求基于 method 和 URL 分发到对应的 Controller。
+见[文档](docs/controller.md)
 
 #### service
-引入 service 是为了让 controller 层更加轻量，这样 controller 中的逻辑会更加简洁，代码的复用性也能够更强。
+见[文档](docs/service.md)
 
 #### model
-这个我也很难用语言来描述，在实际的开发中，如果只有 controller 及 service，会让代码比较臃肿，而且分层不够清晰。所以加了 model 层，用于访问数据库、访问缓存、访问第三方等，个人理解像一个领域模型或是一个防腐层。
+见[文档](docs/model.md)
 
 ### 核心支持
 #### config
-配置文件集合，可根据 NODE_ENV 加载不同的配置，默认加载 config_default.js 的配置，可被覆盖。
+配置文件目录，可根据 NODE_ENV 加载配置（提前是对应环境的配置已准备好），默认加载 config_default.js 的配置，默认配置可被覆盖。
 
 #### plugin
-插件存储的目录，目前只有一个 log.js，用于打印项目日志。
+存储插件目录，目前只有一个 log.js，用于打印项目日志。
 
 #### common
+基础配置目录：
 - error_code.js: 错误码配置文件
 - error_msg.js: 错误信息配置文件
 - log_type.js: 日志类型配置文件
@@ -110,14 +93,14 @@ All files       |      100 |      100 |      100 |      100 |                   
 
 ### 其它说明
 - app.js: 入口启动文件
-- .eslintignore: eslint 规则忽略文件
-- .eslintrc: eslint 规则
+- .eslintignore: 忽略 eslint 规则的配置文件
+- .eslintrc: eslint 规则配置文件
+- .prettierrc: prettier 配置
 - .huskyrc: husky 配置
 - commitlint.config.js: 结合 husky 使用
 - .nycrc: nyc 配置
-- .prettierrc: prettier 配置
-- .gitignore: git 忽略文件
-- .npmignore: npm 忽略文件
+- .gitignore: git 忽略配置文件
+- .npmignore: npm 忽略配置文件
 
 ## 部分依赖说明
 
