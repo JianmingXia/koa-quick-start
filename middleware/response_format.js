@@ -23,6 +23,7 @@ const parseErrorResult = (ctx, err) => {
 
     // 自定义错误
     return {
+      success: false,
       code: err.code || ErrorCode.UNKNOWN_ERROR,
       data: err.data || null,
       message: err.message,
@@ -41,6 +42,7 @@ const parseErrorResult = (ctx, err) => {
 
     // 未知错误
     return {
+      success: false,
       code: ErrorCode.UNKNOWN_ERROR,
       data: null,
       message: ErrorMsg.UNKNOWN_ERROR,
@@ -54,6 +56,7 @@ module.exports = () => {
       await next();
 
       ctx.body = {
+        success: true,
         code: ErrorCode.OK,
         data: ctx.body,
         message: null,

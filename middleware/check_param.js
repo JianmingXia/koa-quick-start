@@ -24,18 +24,18 @@ module.exports = (params) => {
       const schemaKeys = Object.getOwnPropertyNames(params);
 
       for (const keyName of schemaKeys) {
-        const validResult = Joi.validate(reqParam[keyName], params[keyName]);
+        const {error, value} = Joi.validate(reqParam[keyName], params[keyName]);
 
-        if (validResult.error) {
+        if (error) {
           log.warn({
             type: LogType.PARAM_ERROR,
-            msg: validResult.error.message,
+            msg: error.message,
           });
 
           throw new SysError(ErrorMsg.INVALID_PARAM, ErrorCode.INVALID_PARAM);
         }
 
-        reqParam[keyName] = validResult.value;
+        reqParam[keyName] = value;
       }
     }
 

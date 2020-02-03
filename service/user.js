@@ -1,6 +1,6 @@
 'use strict';
 
-const TestModel = require('../model/user');
+const UserModel = require('../model/user');
 
 module.exports = {
   /**
@@ -8,6 +8,6 @@ module.exports = {
    * @returns {{userId: Number}}
    */
   async getUser(userId) {
-    return TestModel.getUser(userId);
+    return UserModel.getUser(userId);
   },
 };
