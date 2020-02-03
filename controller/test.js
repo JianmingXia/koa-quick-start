@@ -1,14 +1,12 @@
 'use strict';
 
-const UserService = require('../service/user');
-
 module.exports = {
   /**
    * 第一个测试
    * @param {*} ctx
    */
   async test(ctx) {
-    ctx.body = 'test';
+    ctx.body = '正常测试 OK';
   },
 
   /**
@@ -17,15 +15,5 @@ module.exports = {
    */
   async throwUndefinedError(ctx) {
     ctx.body = xxxx;
-  },
-
-  /**
-   * 获取员工
-   * @param {*} ctx
-   */
-  async getUser(ctx) {
-    const {userId} = ctx.reqParams.router;
-
-    ctx.body = await UserService.getUser(userId);
   },
 };

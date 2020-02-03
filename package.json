@@ -1,12 +1,13 @@
 {
   "name": "koa-quick-start",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/JianmingXia/koa-quick-start.git"
   },
   "scripts": {
     "start": "node ./app",
+    "watch": "nodemon ./app",
     "lint": "eslint --ext .js ./",
     "test": "npx mocha \"test/**/*.test.js\"",
     "cov": "nyc npm run test"
@@ -29,6 +30,7 @@
     "husky": "^3.0.2",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^6.2.0",
+    "nodemon": "^2.0.2",
     "nyc": "^15.0.0",
     "power-assert": "^1.6.1",
     "prettier": "1.18.2",

@@ -17,7 +17,7 @@ describe('controller/test.js', () => {
         .get('/test')
         .set('Accept', 'application/json');
 
-      assert.equal(body.data, 'test');
+      assert.equal(body.data, '正常测试 OK');
     });
   });
 
@@ -28,6 +28,7 @@ describe('controller/test.js', () => {
         .set('Accept', 'application/json');
 
       assert.deepEqual(body, {
+        success: false,
         code: ErrorCode.UNKNOWN_ERROR,
         data: null,
         message: ErrorMsg.UNKNOWN_ERROR,
@@ -56,6 +57,7 @@ describe('controller/test.js', () => {
         .set('Accept', 'application/json');
 
       assert.deepEqual(body, {
+        success: false,
         code: ErrorCode.UNKNOWN_ERROR,
         data: null,
         message: ErrorMsg.NO_PERMISSION,

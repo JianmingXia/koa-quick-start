@@ -2,7 +2,6 @@
 
 const TestCtrl = require('../controller/test');
 const PermissionCtrl = require('../controller/permission');
-const TestSchema = require('../schema/test');
 
 module.exports = [
   {
@@ -15,12 +14,6 @@ module.exports = [
     method: 'get',
     path: '/throw_undefined_error',
     controller: TestCtrl.throwUndefinedError,
-  },
-  {
-    method: 'get',
-    path: '/users/:userId',
-    controller: TestCtrl.getUser,
-    checkParam: TestSchema.getUser,
   },
   {
     method: 'get',
