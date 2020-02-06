@@ -40,12 +40,15 @@ module.exports = app => {
       config.bodyParser
     )))
     .use(router.routes())
-    .use(router.allowedMethods())
-    .use(async (ctx) => {
-      if (ctx.status === StatusCode.NOT_FOUND) {
-        throw new SysError(ErrorMsg.ROUTER_NOT_FOUND, ErrorCode.ROUTER_NOT_FOUND, StatusCode.NOT_FOUND);
-      } else {
-        throw new SysError(ErrorMsg.UNKNOWN_ERROR, ErrorCode.UNKNOWN_ERROR, StatusCode.OK);
-      }
-    });
+    .use(router.allowedMethods({
+      throw: true,
+      // 不支持此 HTTP 方法
+      notImplemented: () => {
+        return new SysError(ErrorMsg.ROUTER_NOT_FOUND, ErrorCode.ROUTER_NOT_FOUND, StatusCode.NOT_FOUND);
+      },
+      // 路由存在，无对应方法
+      methodNotAllowed: () => {
+        return new SysError(ErrorMsg.ROUTER_NOT_FOUND, ErrorCode.ROUTER_NOT_FOUND, StatusCode.NOT_FOUND);
+      },
+    }));
 };

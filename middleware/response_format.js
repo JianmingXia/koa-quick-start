@@ -55,6 +55,11 @@ module.exports = () => {
     try {
       await next();
 
+      // 不存在的路由（忽略 HTTP 方法）
+      if (ctx.status === StatusCode.NOT_FOUND) {
+        throw new SysError(ErrorMsg.ROUTER_NOT_FOUND, ErrorCode.ROUTER_NOT_FOUND, StatusCode.NOT_FOUND);
+      }
+
       ctx.body = {
         success: true,
         code: ErrorCode.OK,
