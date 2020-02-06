@@ -9,7 +9,7 @@ const log = require('../plugin/log');
 const config = require('../config');
 const LogType = require('../common/log_type');
 
-const router = new Router(config.urlPrefix);
+const router = new Router({prefix: config.urlPrefix});
 
 function addToRouter(routers) {
   routers.forEach(item => {
@@ -19,7 +19,7 @@ function addToRouter(routers) {
       type: LogType.INIT_ROUTER,
       payload: {
         method,
-        path: item.path,
+        path: `${config.urlPrefix}${item.path}`,
       },
     });
 

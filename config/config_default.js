@@ -26,5 +26,5 @@ module.exports = {
     formLimit: '2mb',
     jsonLimit: '56kb',
   },
-  urlPrefix: '',
+  urlPrefix: '/api/v1',
 };
