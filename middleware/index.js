@@ -40,6 +40,7 @@ module.exports = app => {
       config.bodyParser
     )))
     .use(router.routes())
+    // controller 未传入 next，路由匹配默认不会调用 allowedMethods
     .use(router.allowedMethods({
       throw: true,
       // 不支持此 HTTP 方法
