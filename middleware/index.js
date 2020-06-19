@@ -24,6 +24,10 @@ module.exports = app => {
     ctx.body = {};
   });
 
+  if (config.koaSession.config.signed) {
+    app.keys = config.koaSession.keys;
+  }
+
   app
     .use(requestTimeMiddleware())
     .use(responseFormat())
