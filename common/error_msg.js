@@ -7,4 +7,6 @@ module.exports = {
   INVALID_PARAM: '无效的参数',
   REQUEST_ENTITY_TOO_LARGE: '请求内容过长',
   NO_PERMISSION: '无权限操作',
+
+  USER_NOT_FOUND: '用户不存在',
 };

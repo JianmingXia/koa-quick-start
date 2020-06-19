@@ -26,5 +26,15 @@ module.exports = {
     formLimit: '2mb',
     jsonLimit: '56kb',
   },
+  mysql: {
+    username: 'root',
+    password: '123456',
+    database: 'test',
+    host: '127.0.0.1',
+    options: {
+      dialect: 'mysql',
+      operatorsAliases: false,
+    },
+  },
   urlPrefix: '/api/v1',
 };
