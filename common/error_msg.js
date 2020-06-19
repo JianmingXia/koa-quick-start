@@ -8,5 +8,6 @@ module.exports = {
   REQUEST_ENTITY_TOO_LARGE: '请求内容过长',
   NO_PERMISSION: '无权限操作',
 
+  NEED_LOGIN: '需要登录',
   USER_NOT_FOUND: '用户不存在',
 };

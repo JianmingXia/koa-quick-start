@@ -5,10 +5,11 @@ const config = require('./config');
 const log = require('./plugin/log');
 const LogType = require('./common/log_type');
 
-const middleware = require('./middleware');
-
 const app = new Koa();
+// session 会引入 app.js
+module.exports = app;
 
+const middleware = require('./middleware');
 middleware(app);
 
 const server = app.listen(config.port, '0.0.0.0', () => {
@@ -17,5 +18,3 @@ const server = app.listen(config.port, '0.0.0.0', () => {
     msg: 'Server listening on port: ' + server.address().port,
   });
 });
-
-module.exports = app;
