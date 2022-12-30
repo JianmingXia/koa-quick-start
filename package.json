@@ -31,7 +31,7 @@
     "eslint": "^5.15.2",
     "husky": "^3.0.2",
     "intelli-espower-loader": "^1.0.1",
-    "mocha": "^8.0.1",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.2",
     "nyc": "^15.0.0",
     "power-assert": "^1.6.1",
